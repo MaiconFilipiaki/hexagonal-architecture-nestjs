@@ -1,0 +1,86 @@
+{
+  "name": "hexagonal-architecture-nestjs",
+  "version": "0.0.1",
+  "context": "api",
+  "description": "Example of architecture with Nestjs",
+  "author": "Maicon Douglas Filipiaki",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "env-cmd -f .env nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "env-cmd -f .env nest start --watch",
+    "start:debug": "env-cmd -f .env nest start --debug --watch",
+    "start:prod": "env-cmd -f .env node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "doc": "npm run compodoc -p tsconfig.json",
+    "pretypeorm": "(rm ormconfig.json || :) && ts-node -r tsconfig-paths/register scripts/write-type-orm-config.ts",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "typeorm:migration:generate": "npm run typeorm -- migration:generate -n",
+    "typeorm:migration:run": "npm run typeorm -- migration:run"
+  },
+  "dependencies": {
+    "@compodoc/compodoc": "^1.1.11",
+    "@nestjs/common": "^7.5.1",
+    "@nestjs/config": "^0.6.1",
+    "@nestjs/core": "^7.5.1",
+    "@nestjs/platform-express": "^7.5.1",
+    "@nestjs/swagger": "^4.7.8",
+    "@nestjs/typeorm": "^7.1.5",
+    "dotenv": "^8.2.0",
+    "env-cmd": "^10.1.0",
+    "nest-router": "^1.0.9",
+    "pg": "^8.5.1",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^6.6.3",
+    "swagger-ui-express": "^4.1.6",
+    "typeorm": "^0.2.29"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^7.5.1",
+    "@nestjs/schematics": "^7.1.3",
+    "@nestjs/testing": "^7.5.1",
+    "@types/express": "^4.17.8",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.6",
+    "@types/supertest": "^2.0.10",
+    "@typescript-eslint/eslint-plugin": "^4.6.1",
+    "@typescript-eslint/parser": "^4.6.1",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "7.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.6.3",
+    "prettier": "^2.1.2",
+    "supertest": "^6.0.0",
+    "ts-jest": "^26.4.3",
+    "ts-loader": "^8.0.8",
+    "ts-node": "^9.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.0.5"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}

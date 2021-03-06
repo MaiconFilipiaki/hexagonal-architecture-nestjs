@@ -1,0 +1,6 @@
+node_modules
+dist
+documentation
+yarn.lock
+.yarnrc
+
