@@ -8,7 +8,7 @@ class Health {
   }
 }
 
-@Controller('actutor')
+@Controller('actuador')
 export class AppController {
   @Get('health')
   getHello(): Health {

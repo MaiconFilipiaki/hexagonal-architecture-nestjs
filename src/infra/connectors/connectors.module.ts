@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import { Module } from '@nestjs/common';
+import { HttpModule, Module } from '@nestjs/common';
 import * as path from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
@@ -17,8 +17,9 @@ import { Connection } from 'typeorm';
       entities: [__dirname + '/../adapter/database/entity/*.entity.{ts,js}'],
       synchronize: true,
     }),
+    HttpModule,
   ],
   providers: [],
-  exports: [],
+  exports: [HttpModule],
 })
 export class ConnectorsModule {}

@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { RouterModule, Routes } from 'nest-router';
-import { V1Module } from './v1/v1.module';
+import { UserModule } from './v1/user/user.module';
+import { V1Module, routesv1 } from './v1/v1.module';
 
 const routes: Routes = [
   {
     path: '/v1',
     module: V1Module,
-    children: [],
+    children: routesv1,
   },
 ];
 
